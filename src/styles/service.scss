@@ -1,0 +1,80 @@
+@import "_vars.scss";
+@import "_mixins.scss";
+
+.service {
+    background-color: $mainDarkBlue;
+    &__container {
+        padding-top: 72px;
+        padding-bottom: 88px;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+    &__first {
+        max-width: 200px;
+    }
+    &__second {
+        max-width: 200px;
+    }
+    &__third {
+        max-width: 200px;
+    }
+    &__fourth {
+        max-width: 200px;
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 21px;
+        line-height: 25px;
+        color: $white;
+        margin-bottom: 20px;
+    }
+    &__list {
+        @extend %list-reset;
+    }
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: $gray20;
+    }
+    &__menu {
+        @extend %list-reset;
+        &-item {
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+        &-link {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 27px;
+            color: $white;
+        }
+    }
+    &__line {
+        max-width: 555px;
+        height: 1px;
+        background-color: $darkBlue;
+        margin-bottom: 24px;
+    }
+    &__bottom {
+        a {
+            display: inline-block;
+            max-width: 200px;
+            &:first-child {
+                max-width: 176px;
+            }
+            &:not(:last-child) {
+                margin-right: 162px;
+            }
+        }
+    }
+}
