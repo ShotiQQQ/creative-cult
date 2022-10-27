@@ -2,12 +2,6 @@
 @import "_mixins.scss";
 
 .header {
-    
-    &__container {
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-    }
     &__top {
         display: flex;
         width: 100%;
@@ -23,13 +17,13 @@
         font-size: 11px;
         line-height: 17px;
         margin-right: auto;
-        color: #003154;
+        color: $mainDarkBlue;
     }
     &__connect {
         display: flex;
         align-items: center;
         @extend %btn-reset;
-        color: #003154;
+        color: $mainDarkBlue;
         font-weight: 400;
         font-size: 14px;
         line-height: 22px;
@@ -42,7 +36,7 @@
     }
     &__language {
         @extend %btn-reset;
-        color: #003154;
+        color: $mainDarkBlue;
         font-weight: 400;
         font-size: 14px;
         line-height: 22px;
@@ -52,5 +46,26 @@
         display: flex;
         align-items: center;
         @extend %btn-reset;
+    }
+    &__line {
+        width: 100%;
+        height: 1px;
+        background-color: $gray20;
+    }
+    &__bottom {
+        width: 100%;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    &__list {
+        @extend %list-reset;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 22px;
+        color: $black70;
     }
 }
