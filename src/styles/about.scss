@@ -4,12 +4,20 @@
 .about {
     &__container {
         display: flex;
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
     }
     &__left {
         width: 50%;
         min-height: 100%;
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
     &__img {
+        display: block;
         min-height: 100%;
     }
     &__right {
@@ -19,6 +27,10 @@
         padding: 104px 80px;
         background-color: $lightBlue;
         min-height: 100%;
+        @media (max-width: 768px) {
+            width: 100%;
+            padding: 46px 20px 50px;
+        }
     }
     &__sign {
         font-weight: 600;
@@ -28,6 +40,10 @@
         color: $black60;
         text-transform: uppercase;
         margin-bottom: 8px;
+        @media (max-width: 450px) {
+            font-size: 12px;
+            line-height: 17px;
+        }
     }
     &__title {
         max-width: 418px;
@@ -36,6 +52,10 @@
         line-height: 34px;
         color: $mainDarkBlue;
         margin-bottom: 16px;
+        @media (max-width: 450px) {
+            font-size: 27px;
+            line-height: 31px;
+        }
     }
     &__descr {
         font-weight: 400;
@@ -56,5 +76,17 @@
         background-repeat: no-repeat;
         padding-right: 16px;
         margin-top: auto;
+        transition: color .3s, padding .3s;
+        &:hover {
+            padding-right: 20px;
+        }
+        &:active {
+            border-color: $activeLinks;
+            color: $activeLinks;
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
     }
 }

@@ -2,22 +2,38 @@
 @import "_mixins.scss";
 
 .header {
+    overflow: hidden;
     &__top {
         display: flex;
+        align-items: center;
         width: 100%;
         padding-top: 25px;
         padding-bottom: 25px;
+        @media (max-width: 450px) {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
     }
-    &__link {
+    &__main {
         margin-right: 24px;
+        @media (max-width: 768px) {
+            margin-right: auto;
+        }
+        @media (max-width: 450px) {
+            width: 129px;
+            height: 20px;
+        }
     }
     &__descr {
-        max-width: 360px;
+        max-width: 285px;
         font-weight: 400;
         font-size: 11px;
         line-height: 17px;
         margin-right: auto;
         color: $mainDarkBlue;
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
     &__connect {
         display: flex;
@@ -28,10 +44,35 @@
         font-size: 14px;
         line-height: 22px;
         margin-right: 32px;
+        transition: color .3s, border-color .3s;
+        svg path {
+            transition: fill .3s;
+        }
         span {
             display: flex;
             align-self: center;
             margin-right: 7px;
+        }
+        &:hover {
+            border-bottom: $hoverLinks;
+            margin-bottom: -1px;
+        }
+        &:active {
+            color: $activeLinks;
+            border-color: $activeLinks;
+            svg path {
+                fill: $activeLinks;
+            }
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
+        @media (max-width: 809px) {
+            margin-right: 8px;
+        }
+        @media (max-width: 768px) {
+            display: none;
         }
     }
     &__language {
@@ -41,11 +82,50 @@
         font-size: 14px;
         line-height: 22px;
         margin-right: 32px;
+        transition: color .3s, border-color .3s;
+        &:hover {
+            border-bottom: $hoverLinks;
+            margin-bottom: -1px;
+        }
+        &:active {
+            color: $activeLinks;
+            border-color: $activeLinks;
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
+        @media (max-width: 809px) {
+            margin-right: 8px;
+        }
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
     &__search {
         display: flex;
         align-items: center;
         @extend %btn-reset;
+        svg path {
+            transition: fill .3s;
+        }
+        &:hover {
+            border-bottom: $hoverLinks;
+            margin-bottom: -1px;
+        }
+        &:active {
+            border-color: $activeLinks;
+            svg path {
+                fill: $activeLinks;
+            }
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
+        @media (max-width: 768px) {
+            margin-right: 20px;
+        }
     }
     &__line {
         width: 100%;
@@ -62,10 +142,108 @@
         display: flex;
         justify-content: space-between;
     }
+    &__item {
+        width: auto !important;
+        @media (max-width: 950px) {
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: $gray5;
+        }
+    }
     &__link {
         font-weight: 400;
         font-size: 15px;
         line-height: 22px;
         color: $black70;
+        &:hover {
+            border-bottom: $hoverLinks;
+            margin-bottom: -1px;
+        }
+        &:active {
+            border-color: $activeLinks;
+            color: $activeLinks;
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
+        @media (max-width: 950px) {
+            font-size: 14px;
+            line-height: 22px;
+            white-space: nowrap;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__burger {
+        @extend %btn-reset;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        &-line {
+            border-radius: 100px;
+            display: inline-block;
+            width: 100%;
+            height: 2px;
+            background-color: $black80;
+            transition: transform .5s;
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+        &--active {
+            @media (max-width: 768px) {
+                transform: translateY(9px);
+                .header__burger-line {
+                    margin: 0;
+                }
+                .header__burger-line--1 {
+                    transform: rotate(45deg);
+                }
+                .header__burger-line--2 {
+                    transform: rotate(-45deg);
+                    margin-top: -2px;
+                }
+                .header__burger-line--3 {
+                    display: none;
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            display: flex;
+        }
+    }
+    &__mobile {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        background-color: rgba(0, 49, 84, .5);
+        position: absolute;
+        height: 400px;
+        top: 0;
+        right: 30%;
+        left: 0;
+        z-index: 2;
+        padding: 16px;
+        transform: translate(-100%);
+        transition: transform .3s;
+        .header__connect {
+            display: flex;
+            color: $white;
+            svg path {
+                fill: $white;
+            }
+        }
+        .header__language {
+            display: inline;
+            color: $white;
+        }
+    }
+    &__mobile--active {
+        @media (max-width: 768px) {
+            transform: translate(0);
+        }
     }
 }

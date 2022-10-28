@@ -7,6 +7,14 @@
         justify-content: space-between;
         padding-top: 218px;
         padding-bottom: 64px;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            padding-top: 64px;
+        }
+        @media (max-width: 616px) {
+            padding-top: 52px;
+            padding-bottom: 52px;
+        }
     }
     &__info {
         display: flex;
@@ -14,6 +22,9 @@
         justify-content: flex-end;
         align-items: flex-start;
         max-width: 282px;
+        @media (max-width: 768px) {
+            margin-bottom: 200px;
+        }
     }
     &__sign {
         font-weight: 600;
@@ -23,6 +34,10 @@
         color: $black60;
         text-transform: uppercase;
         margin-bottom: 8px;
+        @media (max-width: 450px) {
+            font-size: 12px;
+            line-height: 17px;
+        }
     }
     &__title {
         font-weight: 600;
@@ -30,6 +45,10 @@
         line-height: 34px;
         color: $mainDarkBlue;
         margin-bottom: 16px;
+        @media (max-width: 450px) {
+            font-size: 27px;
+            line-height: 31px;
+        }
     }
     &__advice {
         font-weight: 400;
@@ -39,7 +58,10 @@
     }
     &__cards {
         display: flex;
-
+        @media (max-width: 616px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
     &__card {
         position: relative;
@@ -52,12 +74,20 @@
         background-color: $lightBlue;
         &:not(:last-child) {
             margin-right: 24px;
+            @media (max-width: 616px) {
+                margin-right: 0;
+                margin-bottom: 210px;
+            }
         }
+        
     }
     &__image {
         position: absolute;
+        width: 384px;
+        height: 308px;
         top: -186px;
         left: 0;
+        
     }
     &__subtitle {
         font-weight: 600;
@@ -66,6 +96,10 @@
         max-width: 320px;
         color: $black80;
         margin-bottom: 16px;
+        @media (max-width: 450px) {
+            font-size: 23px;
+            line-height: 25px;
+        }
     }
     &__descr {
         max-width: 320px;
@@ -77,5 +111,23 @@
     }
     &__btn {
         @include button($white, none, $mainDarkBlue);
+        transition: color .3s, background-color .3s;
+        margin-top: auto;
+        &:hover {
+            color: $mainDarkBlue;
+            background-color: transparent;
+            outline: 1px solid $mainDarkBlue;
+        } 
+        &:active {
+            background-color: $active;
+            color: $white;
+        }
+        &:focus-visible {
+            background-color: $focus;
+            color: $white;
+        }
+        @media (max-width: 450px) {
+            width: 100%;
+        }
     }
 }

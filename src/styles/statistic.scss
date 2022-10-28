@@ -9,6 +9,10 @@
         align-items: center;
         padding-top: 80px;
         padding-bottom: 80px;
+        @media (max-width: 450px) {
+            padding-top: 46px;
+            padding-bottom: 52px;
+        }
     }
     &__about {
         max-width: 788px;
@@ -18,12 +22,24 @@
         color: $white;
         margin-bottom: 87px;
         text-align: center;
+        @media (max-width: 450px) {
+            font-size: 18px;
+            line-height: 29px;
+            margin-bottom: 48px;
+        }
     }
     &__cards {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        @media (max-width: 961px) {
+            row-gap: 24px;
+        }
+        @media (max-width: 450px) {
+            justify-content: center;
+            row-gap: 34px;
+        }
     }
     &__card {
         display: flex;

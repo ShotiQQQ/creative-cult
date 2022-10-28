@@ -7,12 +7,36 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 30% 100%;
+    @media (max-width: 950px) {
+        background-position: top center;
+        background-size: 100% 30%;
+    }
+    @media (max-width: 450px) {
+        background-size: 100% 30%;
+    }
     &__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         padding-top: 80px;
-        padding-bottom: 80px;
+        padding-bottom: 32px;
+        @media (max-width: 450px) {
+            padding-top: 24px;
+            padding-bottom: 24px;
+            .hero__swiper-pagination {
+                position: absolute;
+                width: auto !important;
+                left: auto !important;
+                right: 24px !important;
+                bottom: 22px !important;
+            }
+        }
+        .swiper-pagination-bullet {
+            width: 6px;
+            height: 6px;
+        }
+        .swiper-pagination-bullet-active {
+            width: 8px;
+            height: 8px;
+            background: $mainDarkBlue;
+        }
     }
     &__content {
         display: flex;
@@ -22,8 +46,14 @@
     &__icons {
         display: flex;
         margin-bottom: 16px;
+        @media (max-width: 450px) {
+            margin-bottom: 8px;
+        }
     }
     &__icon {
+        @media (max-width: 450px) {
+            max-width: 30px;
+        }
         &:not(:last-child) {
             margin-right: 16px;
         }
@@ -35,6 +65,10 @@
         line-height: 38px;
         margin-bottom: 16px;
         color: $mainDarkBlue;
+        @media (max-width: 450px) {
+            font-size: 23px;
+            line-height: 25px;
+        }
     }
     &__descr {
         font-weight: 400;
@@ -42,9 +76,53 @@
         line-height: 29px;
         color: $black70;
         margin-bottom: 56px;
+        @media (max-width: 450px) {
+            font-size: 15px;
+            line-height: 22px;
+            margin-bottom: 32px;
+        }
     }
     &__btn {
-        @include button($mainDarkBlue, 1px solid $mainDarkBlue, transparent);   
+        @include button($mainDarkBlue, 1px solid $mainDarkBlue, transparent); 
+        transition: background-color .3s, color .3s;  
+        &:hover {
+            background-color: $hover;
+            color: $white;
+        }
+        &:active {
+            background-color: $active;
+        }
+        &:focus-visible {
+            background-color: $focus;
+            color: $white;
+        }
+    }
+    &__swiper {
+        overflow: hidden;
+        @media (max-width: 450px) {
+            position: relative;
+        }
+        .swiper-wrapper {
+            margin-bottom: 40px;
+            @media (max-width: 450px) {
+                margin-bottom: 0;
+            }
+        }
+        .swiper-slide {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @media (max-width: 950px) {
+                flex-direction: column-reverse;
+            }
+            @media (max-width: 768px) {
+                align-items: flex-start;
+            }
+        }
+        &-pagination {
+            text-align: center;
+        }
     }
     &__picture {
         max-width: 588px;

@@ -8,11 +8,22 @@
         flex-wrap: wrap;
         padding-top: 80px;
         padding-bottom: 80px;
+        @media (max-width: 788px) {
+            flex-direction: column;
+        }
+        @media (max-width: 450px) {
+            padding-top: 46px;
+            padding-bottom: 52px;
+        }
     }
     &__left {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        margin-right: 16px;
+        @media (max-width: 1153px) {
+            margin-bottom: 36px;
+        }
     }
     &__title {
         font-weight: 600;
@@ -20,6 +31,11 @@
         line-height: 34px;
         color: $mainDarkBlue;
         margin-bottom: 24px;
+        @media (max-width: 450px) {
+            font-size: 27px;
+            line-height: 31px;
+            margin-bottom: 14px;
+        }
     }
     &__btn {
         @extend %btn-reset;
@@ -32,9 +48,29 @@
         background-position: top 6px right;
         background-repeat: no-repeat;
         padding-right: 16px;
+        transition: padding .3s, color .3s;
+        &:hover {
+            padding-right: 20px;
+        }
+        &:active {
+            border-color: $activeLinks;
+            color: $activeLinks;
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
+        @media (max-width: 450px) {
+            font-size: 15px;
+            line-height: 22px;
+        }
     }
     &__right {
         display: flex;
+        @media (max-width: 788px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
     &__list {
         @extend %list-reset;
@@ -43,6 +79,13 @@
         border-left: 1px solid $gray30;
         &:not(:last-child) {
             margin-right: 40px;
+            @media (max-width: 788px) {
+                margin-right: 0;
+                margin-bottom: 32px;
+            }
+        }
+        @media (max-width: 788px) {
+            max-width: 100%;
         }
     }
     &__item {
@@ -55,5 +98,18 @@
         font-size: 17px;
         line-height: 27px;
         color: $black80;
+        transition: color .3s, border-color .3s;
+        &:hover {
+            border-bottom: $hoverLinks;
+            margin-bottom: -1px;
+        }
+        &:active {
+            border-color: $activeLinks;
+            color: $activeLinks;
+        }
+        &:focus-visible {
+            border-bottom: 1px solid $focus;
+            margin-bottom: -1px;
+        }
     }
 }
